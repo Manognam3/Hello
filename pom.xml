@@ -1,46 +1,46 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.jdevs</groupId>
-  <artifactId>studentapp</artifactId>
-  <version>2.5-SNAPSHOT</version>
+  <groupId>in.javahome</groupId>
+  <artifactId>mywweb</artifactId>
+  <version>8.2.0</version>
   <packaging>war</packaging>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.6</version>
-        <configuration>
-          <warSourceDirectory>WebContent</warSourceDirectory>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-   <distributionManagement>
-        <repository>
-            <id>deployment</id>
-            <name>Internal Releases</name>
-            <url>http://10.128.0.10:8081/repository/student-rel/</url>
-        </repository>
-        <snapshotRepository>
-            <id>deployment</id>
-            <name>Internal Snapshot Releases</name>
-            <url>http://10.128.0.10:8081/repository/student-snap/</url>
-        </snapshotRepository>
-    </distributionManagement>
+  <name>Java Home myweb</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+        <docker.image.prefix>kammana</docker.image.prefix>
+    <sonar.host.url>http://15.206.127.168:9000/</sonar.host.url>
+
+
+  </properties>
   <dependencies>
-  	<dependency>
-  		<groupId>javax.servlet</groupId>
-  		<artifactId>javax.servlet-api</artifactId>
-  		<version>3.0.1</version>
-  	</dependency>
+
+           <dependency>
+               <groupId>junit</groupId>
+               <artifactId>junit</artifactId>
+               <version>3.8.1</version>
+               <scope>test</scope>
+           </dependency>
   </dependencies>
+
+  <distributionManagement>
+               <snapshotRepository>
+                 <id>nexusRepo</id>
+                 <url>http://65.0.73.87:8081/repository/sample-snapshots/</url>
+               </snapshotRepository>
+
+    <Repository>
+      <id>nexusRepo</id>
+      <url>http://65.0.73.87:8081//repository/sample-releases/</url>
+    </repository>
+ </distributionManagement> 
+
+
+<pluginRepositories>
+  <pluginRepository>
+       <id>maven1</id>
+    <name>Maven.org</name>
+    <url>http://repo1.maven.org/maven2</url>
+  </pluginRepository>
+  </pluginRepositories>
+</project>
